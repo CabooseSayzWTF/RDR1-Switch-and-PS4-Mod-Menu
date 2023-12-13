@@ -5,9 +5,9 @@ Slluxx created a real hardware script loader that allows this code work on real 
 So as such, real hardware is not yet supported however I will edit the code as needed/seen fit for real hardware compatibility for the case of it someday being released.
 
 # Things Needed/Videos
-MagicRDR: https://github.com/Foxxyyy/Magic-RDR/releases >
-Visual Studio: Project was made using visual studio, confirmed working on vs 2022. Haven't personally tested on anything lower or higher. >
-Showcase Video: https://youtu.be/WPehZywCuf4 >
+MagicRDR: https://github.com/Foxxyyy/Magic-RDR/releases<br>
+Visual Studio: Project was made using visual studio, confirmed working on vs 2022. Haven't personally tested on anything lower or higher.<br>
+Showcase Video: https://youtu.be/WPehZywCuf4<br>
 How To Install Tut If Needed: https://youtu.be/n7kRJp1a6cY
 
 # Terms & Conditions Of Source Code Use and Distrubution
