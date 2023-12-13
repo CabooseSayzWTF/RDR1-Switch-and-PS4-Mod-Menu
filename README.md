@@ -10,27 +10,7 @@ Visual Studio: Project was made using visual studio, confirmed working on vs 202
 Showcase Video: https://youtu.be/WPehZywCuf4<br>
 How To Install Tut If Needed: https://youtu.be/n7kRJp1a6cY
 
-# Terms & Conditions Of Source Code Use and Distrubution
-I retain all rights to the source code as well as ImFoxxyyy, this means every single line of code.
-You are granted the ability to fork, modify, improve and update as you see fit for private personal use or for merge request to update the code on my end
-in this repository. Just be aware I retain the right to decline any merge/update request.
-You can use code from this source for your own menu, but not clone the entire menu in and of itself.
-However you MUST give credits to every single person listed in the credits below if you use any code from this source code.
-Under the term clone or make replication in and there of, you are not granted the ability to take ownership of this menu and
-or to re-brand the menu as your own. If you do this, you freely agree that I/we creators of the menu have the right to request take down
-of your source code or script in a compiled/decompiled state where-ever you have it posted at. If you use any of this code in your projects, you grant I/we creators
-the ability to decompile or view the source code for your project at request if we have suspicion it is being used for wrong doing, or if we feel the entirity of the code
-was cloned in general to make up your project as a whole. Respectfully speaking I/we don't see this being a major issue moving forward.
-You retain the right to use code from this source but not a direct clone or rebrand or to try to claim ownership over it. Again you retain the right to edit and modify this source only for
-private personal use or for merge/update request. Merge/update request should really only consit of optimization, bug fixing and of the sort. You can do a merge/update request for
-features if you have created any to be added but be aware by doing a update/merge request that you are granting us ownership of the code. You will recieve a honorable mention in the credits
-but you forfit ownership of the code you freely handed us. Unless otherwise stated or if a special agreement is made between us parties. By viewing or using any of this code in your personal 
-projects, you again agree to give credits where they are due. You also agree to never sell your project for profit. If you showcase the menu in any form or fashion rather that be a video, webpost etc, you agree to list all credits from the credits section below on your thread, post, and or video or where-ever it is you are showing this.
-Now if I/we creators ever abandon this project and we will let it be publicly known, only then will it be free game to do whatever to your hearts content with the code.
-However even if abandoned you are required to add the credits below to your project or whatever the code is used in. It is highly unlikely we will hand the project over to somebody else to
-properly maintain and update. Instead if it becomes abandoned, the code, the source, the project as a whole will belong to the people, but again credits must stay intact and added onto if that day ever comes.
-
-Now, SC-CL compiler, clang, visual studio, yuzu, ryujinx and any dependencies along side those programs/applications have there own liscenses, copyrights, & terms/conditions to agree to, so you can look further into those if you wish as I have no say so over them from my end. The Switch script compiler is a modified version of SC-CL by ImFoxxyyy which at this time of writing is closed source(switch version of sc-cl), I have permission from foxxyyy to release that compiler along side this source code for people to compile this project for private/personal use & for merge/update request. You are granted permission to use that compiler for your own switch script needs.
+The Switch script compiler is a modified version of SC-CL by ImFoxxyyy which at this time of writing is closed source(switch version of sc-cl), I have permission from foxxyyy to release that compiler along side this source code for people to compile this project for private/personal use & for merge/update request. You are granted permission to use that compiler for your own switch script needs.
 
 # Credits
 CabooseSayzWTF - Menu Dev/Native Research<br>
