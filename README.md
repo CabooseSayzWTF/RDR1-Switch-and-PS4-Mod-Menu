@@ -6,7 +6,7 @@ So as such, real hardware is not yet supported however I will edit the code as n
 
 # Things Needed/Videos
 MagicRDR: https://github.com/Foxxyyy/Magic-RDR/releases
-#n#
+>
 Visual Studio: Project was made using visual studio, confirmed working on vs 2022. Haven't personally tested on anything lower or higher.
 Showcase Video: https://youtu.be/WPehZywCuf4
 How To Install Tut If Needed: https://youtu.be/n7kRJp1a6cY
