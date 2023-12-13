@@ -30,19 +30,19 @@ Now if I/we creators ever abandon this project and we will let it be publicly kn
 However even if abandoned you are required to add the credits below to your project or whatever the code is used in. It is highly unlikely we will hand the project over to somebody else to
 properly maintain and update. Instead if it becomes abandoned, the code, the source, the project as a whole will belong to the people, but again credits must stay intact and added onto if that day ever comes.
 
-Now, SC-CL compiler, clang, visual studio, yuzu, ryujinx and any dependencies along side those programs/applications have there own liscenses, copyrights, & terms/conditions to agree to, so you can look further into those if you wish as I have no say so over them from my end. The Switch script compiler is a modified version of SC-CL by ImFoxxyyy which at this time of writing is closed source, I have permission from foxxyyy to release that compiler along side this source code for people to compile this project for private/personal use & for merge/update request. You are granted permission to use that compiler for your own switch script needs.
+Now, SC-CL compiler, clang, visual studio, yuzu, ryujinx and any dependencies along side those programs/applications have there own liscenses, copyrights, & terms/conditions to agree to, so you can look further into those if you wish as I have no say so over them from my end. The Switch script compiler is a modified version of SC-CL by ImFoxxyyy which at this time of writing is closed source(switch version of sc-cl), I have permission from foxxyyy to release that compiler along side this source code for people to compile this project for private/personal use & for merge/update request. You are granted permission to use that compiler for your own switch script needs.
 
 # Credits
-CabooseSayzWTF - Menu Dev/Native Research
-ImFoxxyyy - Menu Dev/Helper/Native Research/Switch Script Compiler/MagicRDR & so much more
-Sockstress - Helper/Native Research/Menu Dev
-xTheDevilRazedMe - Helper/Menu Dev on older rdr projects
-Cain532 - Helper/Native Research/Other rdr projects
-JamesTwt - Helper On Older RDR Projects
-FuhzBot/Connor - Helper/Native Research/Other rdr projects
-Slluxx - Script Loader For Switch (unreleased atm)
-RouletteBoi - Helper/Native Research
-KeatonTheBot - Tester
+CabooseSayzWTF - Menu Dev/Native Research<br>
+ImFoxxyyy - Menu Dev/Helper/Native Research/Switch Script Compiler/MagicRDR & so much more<br>
+Sockstress - Helper/Native Research/Menu Dev<br>
+xTheDevilRazedMe - Helper/Menu Dev on older rdr projects<br>
+Cain532 - Helper/Native Research/Other rdr projects<br>
+JamesTwt - Helper On Older RDR Projects<br>
+FuhzBot/Connor - Helper/Native Research/Other rdr projects<br>
+Slluxx - Script Loader For Switch (unreleased atm)<br>
+RouletteBoi - Helper/Native Research<br>
+KeatonTheBot - Tester<br>
 
 # Disclaimer
 For T2 & R* & DE: No original game files are included and I do not condone piracy, everybody should know exactly how to obtain a game backup from there own switch. I will not link or share methods or means on how to get games as that is illegal and I myself do not support such antics. This menu is made strictly for singleplayer and nothing more. If multiplayer support is ever added, I do not condone the use of this menu in multiplayer. The menu code is publicly available so as is, the code is at your disposal to patch it out from running on later updates.
