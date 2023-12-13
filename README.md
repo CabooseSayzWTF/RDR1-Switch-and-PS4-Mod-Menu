@@ -3,14 +3,14 @@ This is the source code to the mod menu I have released for nintendo switch.
 At this time of writing, the menu source code and compiled code is only usable on emulators such as yuzu and ryujinx, even tho yuzu is more compatible.
 Slluxx created a real hardware script loader that allows this code work on real hardware for the most part, however I do not currently have permission to release or link to that.
 So as such, real hardware is not yet supported however I will edit the code as needed/seen fit for real hardware compatibility for the case of it someday being released.
+The Switch script compiler is a modified version of SC-CL by ImFoxxyyy which at this time of writing is closed source(switch version of sc-cl), I have permission from foxxyyy to release that compiler along side this source code for people to compile this project for private/personal use & for merge/update request. You are granted permission to use that compiler for your own switch script needs.
+You can use the code from this menu for yopur own projects, all I ask is that you give credits to everybody in the credits section. You are not allowed ownership of the menu, however feel free to optimize, bug fix, add features and do a pull/merge/update request. If a request is accepted you will get a honrable mention in the credits. If you change stuff, showcase the menu on webpost, videos, etc. You must bare minimum add all credits from the below.
 
 # Things Needed/Videos
 MagicRDR: https://github.com/Foxxyyy/Magic-RDR/releases<br>
 Visual Studio: Project was made using visual studio, confirmed working on vs 2022. Haven't personally tested on anything lower or higher.<br>
 Showcase Video: https://youtu.be/WPehZywCuf4<br>
 How To Install Tut If Needed: https://youtu.be/n7kRJp1a6cY
-
-The Switch script compiler is a modified version of SC-CL by ImFoxxyyy which at this time of writing is closed source(switch version of sc-cl), I have permission from foxxyyy to release that compiler along side this source code for people to compile this project for private/personal use & for merge/update request. You are granted permission to use that compiler for your own switch script needs.
 
 # Credits
 CabooseSayzWTF - Menu Dev/Native Research<br>
