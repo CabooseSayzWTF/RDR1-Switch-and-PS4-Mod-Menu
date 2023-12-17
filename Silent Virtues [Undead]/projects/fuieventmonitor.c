@@ -26,8 +26,9 @@ void main()
 					}
 				}
 				WAIT(5000);
-				// This causes the game to crash on ryujinx in undead nightmare, either wrong parameters or it cant load the song and causes a panic to occur
-				//AUDIO_MUSIC_ONE_SHOT("mex_mission_complete_song_01", 0, 0, 0, 0, 0);
+				// This should now be fixed for ryujinx and real hardware, had to change the song to avoid a crash, however song is basically the same as before just diff name.
+				// comment this song out if it becomes a issue on up in game progression
+				AUDIO_MUSIC_ONE_SHOT("ftr_mission_complete_song_01", 0, 0, 0, 0, 0);
 				print2("Welcome to <red>Silent Virtues</red> \n<blue>Creators: CabooseSayzWTF, Im Foxxyy, & Sockstress</blue> \n<purple>Hold</purple> <rb><purple>and press</purple> <rs><purple>to open", 8000);
 				executeOnce = 0;
 			}

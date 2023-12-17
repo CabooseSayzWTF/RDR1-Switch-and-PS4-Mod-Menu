@@ -53,6 +53,7 @@ bool Fireround;
 bool Slugz;
 bool SuperJump;
 int jtest1;
+int pedcomp = 0;
 bool ClearDE;
 bool BlueDE;
 bool RedDE;
@@ -329,6 +330,7 @@ void PlayerUseGringo(const char* animName)
 	TASK_CLEAR(self);
 	ACTOR_RESET_ANIMS(self, 1);
 	STREAMING_EVICT_GRINGO(animID);
+	SUSPEND_MOVER(self);
 	ENABLE_MOVER(self);
 	//SET_MOVER_FROZEN(self, 0);
 	if (!RequestGringo(animName))
@@ -545,6 +547,24 @@ void ChangeModel(Actor actor, eActor actorID)
 	RESPAWN_PLAYER_ACTOR_IN_LAYOUT(FIND_NAMED_LAYOUT("PlayerLayout"), actor, "player", actorID, ve20, mcrot, 1);//player may not be needed
 	SET_CAMERA_FOLLOW_ACTOR(self);
 	SET_ACTOR_HEALTH(actor, GET_ACTOR_MAX_HEALTH(actor));
+	WAIT(500);//delay to make sure we are fully swapped in
+	for (int i = 0; i <= 100; i++)
+	{
+		if (i != 29 && i != 30)//exploded head types (prob only for undead?)
+		{
+			if (ACTOR_HAS_VARIABLE_MESH(self, i))
+			{
+				if (!ACTOR_IS_VARIABLE_MESH_ENABLED(self, i))
+				{
+					ACTOR_ENABLE_VARIABLE_MESH(self, i, 1);
+				}
+			}
+		}
+	}
+	if (GET_ACTOR_ENUM(self) == 0 || GET_ACTOR_ENUM(self) == 1)//prob need to add checks for dead john, player clones, and cutscene john model but meh
+	{
+		EQUIP_ACCESSORY(self, 1, 0); ACTOR_ENABLE_VARIABLE_MESH(self, 26, 0);//disabling bandanna because we dont need that if we are swapping to john or jack outright
+	}
 }
 
 int CarSpawnz(eActor id)
@@ -637,6 +657,20 @@ void SpawnItzPedz(eActor id)
 		pedint2 = 0;//resetting it
 	}
 	SpawnPed[pedint2] = CreateActor(id); SET_ACTOR_HEALTH(SpawnPed[pedint2], GET_ACTOR_MAX_HEALTH(SpawnPed[pedint2]));
+	WAIT(300);//small delay to make sure the ped is loaded in!
+	for (int j = 0; j <= 100; j++)
+	{
+		if (j != 29 && j != 30)//exploded head types(prob just undead?)
+		{
+			if (ACTOR_HAS_VARIABLE_MESH(SpawnPed[pedint2], j))
+			{
+				if (!ACTOR_IS_VARIABLE_MESH_ENABLED(SpawnPed[pedint2], j))
+				{
+					ACTOR_ENABLE_VARIABLE_MESH(SpawnPed[pedint2], j, 1);
+				}
+			}
+		}
+	}
 	pedint2 += 1;
 }
 void MedusaCleanUp()
@@ -1282,7 +1316,7 @@ void GiveSpecialWeapon()
 void GIVE_ITEMS()
 {
 	//need to re-do for real hardware support in the future, not a priority rn. On real hardware this softlocks for 20-30 seconds due to it trying to give invalid items, ez fix tho
-	for (int items = 0; items <= 100; items++)//100
+	for (int items = 0; items <= 68; items++)//100
 	{
 		for (int m = 0; m <= 256; m++)//this gives max count of current item
 		{
@@ -1506,12 +1540,23 @@ void MainLRSwitches()
 			if (pedtask == 3 && PedCrip)stradd_s(modmsg, "Cripple</orange>: <green>ON");
 			if (pedtask == 3 && !PedCrip)stradd_s(modmsg, "Cripple</orange>: <red>OFF");
 		}
+		if (PedWepz == 41)
+		{
+			stradd_s(modmsg, "Component Editor\n<x>:Enable\n<y>:Disable\n<action>:Cancel\n<dpadleftright>:Component ID:<orange> ");
+			stradd_s(modmsg, INT_TO_STRING(pedcomp));
+			stradd_s(modmsg, "\nSome components are force disabled by the game (only fix is to loop them always on and that's not really ideal...)");
+			// so this is kinda hard to explain as Idk what to really call this mod func.
+			// Basically this can enable/disable some body parts if the model has a mesh that controls a bodypart as being active or inactive
+			// it can also enable/disable some attachments such as bandanas, bullet shells, gloves, hair, bonnets, bandoliers, gun holsters etc.
+			// but this varies ped model to ped model and the ids can be random on what they control
+			// some id's are force disabled and by what is unknown to me, so like if you enable it, the game will force it back off (I self assume for good reason but honestly idk why)
+		}
 		if (PedWepz == 99)//test switch function
 		{
-			stradd_s(modmsg, "Test\n<x>:Confirm\n<cancel>:Cancel\n<dpadleftright>:Blah<orange> ");
-			stradd_s(modmsg, INT_TO_STRING(troph));
-			stradd_s(modmsg, "\n");
-			stradd_s(modmsg, UI_GET_STRING(Provisions[troph]));
+			//stradd_s(modmsg, "Test\n<x>:Confirm\n<cancel>:Cancel\n<dpadleftright>:Blah<orange> ");
+			//stradd_s(modmsg, INT_TO_STRING(troph));
+			//stradd_s(modmsg, "\n");
+			//stradd_s(modmsg, UI_GET_STRING(Provisions[troph]));
 		}
 		PRINT_HELP_B(modmsg, 500.0f, false, 1, 2, 1, "", "");
 		if (GetButton(DPAD_LEFT))
@@ -1661,6 +1706,11 @@ void MainLRSwitches()
 			{
 				pedtask--;
 				if (pedtask < 0) pedtask = 3;
+			}
+			if (PedWepz == 41)
+			{
+				pedcomp--;
+				if (pedcomp < 0) pedcomp = 31;
 			}
 			if (PedWepz == 99)//for testing
 			{
@@ -1858,6 +1908,11 @@ void MainLRSwitches()
 				pedtask++;
 				if (pedtask > 3) pedtask = 0;
 			}
+			if (PedWepz == 41)
+			{
+				pedcomp++;
+				if (pedcomp > 31) pedcomp = 0;
+			}
 			if (PedWepz == 99)//for testing
 			{
 				troph++;
@@ -1919,6 +1974,7 @@ void MainLRSwitches()
 				TASK_CLEAR(self);
 				ACTOR_RESET_ANIMS(self, 1);
 				STREAMING_EVICT_GRINGO(animID);
+				SUSPEND_MOVER(self);
 				ENABLE_MOVER(self);
 				//SET_MOVER_FROZEN(self, 0);
 			}
@@ -1942,6 +1998,20 @@ void MainLRSwitches()
 						REMOVE_COLLECTABLE(Provisions[proved], self);
 					}
 				}
+			}
+			if (PedWepz == 41)//for testing
+			{
+				if (ACTOR_HAS_VARIABLE_MESH(self, pedcomp))
+				{
+					if (ACTOR_IS_VARIABLE_MESH_ENABLED(self, pedcomp))
+					{
+						ACTOR_ENABLE_VARIABLE_MESH(self, pedcomp, 0);
+					}
+					else
+						print2("Component Already Disabled", 2000);
+				}
+				else
+					print2("Component Not Valid For Current Model", 2000);
 			}
 		}
 		if (GetButton(BUTTON_RB))
@@ -2237,9 +2307,10 @@ void MainLRSwitches()
 			}
 			if (PedWepz == 21)
 			{
-				if (GET_ACTOR_ENUM(self) == 0 || GET_ACTOR_ENUM(self) == 1)
+				int e = GET_ACTOR_ENUM(self);
+				if (e == 0 || e == 1)
 				{
-					_SET_ACTOR_ENUM_VARIATION(self, jtest1);
+					_SET_ACTOR_ENUM_VARIATION(self, jtest1);//just gonna test this again....
 					// this global has a diff index but does change the outfit for gamesave saving
 					// However it only saves actual outfits to the save and not special outfits that arent choosable outfits in game, like john hurt outfits etc.
 					// If people want it i'll have a diff outfit editor for gamesave saving but pointless due to unlock outfits mod in the menu...
@@ -2465,6 +2536,20 @@ void MainLRSwitches()
 					if (!PedCrip) { for (int i = 0; i <= 9; i++) { if (IS_ACTOR_VALID(SpawnPed[i])) { SET_CRIPPLE_ENABLE(SpawnPed[i], 0); SET_CRIPPLE_FLAG(SpawnPed[i], 0); } } }
 					if (PedCrip) { for (int i = 0; i <= 9; i++) { if (IS_ACTOR_VALID(SpawnPed[i])) { SET_CRIPPLE_ENABLE(SpawnPed[i], 1); SET_CRIPPLE_FLAG(SpawnPed[i], 1); } } }
 				}
+			}
+			if (PedWepz == 41)//for testing
+			{
+				if (ACTOR_HAS_VARIABLE_MESH(self, pedcomp))
+				{
+					if (!ACTOR_IS_VARIABLE_MESH_ENABLED(self, pedcomp))
+					{
+						ACTOR_ENABLE_VARIABLE_MESH(self, pedcomp, 1);
+					}
+					else
+						print2("Component Already Enabled", 2000);
+				}
+				else
+					print2("Component Not Valid For Current Model", 2000);
 			}
 			if (PedWepz == 99)//for testing
 			{

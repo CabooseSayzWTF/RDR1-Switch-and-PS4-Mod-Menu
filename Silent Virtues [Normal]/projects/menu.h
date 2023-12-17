@@ -307,6 +307,7 @@ void PedChanger()
 	add_option("All Models");
 	add_option("Quick Models");
 	add_option("Outfit Editor");
+	add_option("Component Editor");
 	add_option("Save Model");//saves to a unused stat in SP but the stat still gets saved regardless to the gamesave, it's actually a MP stat hence why it saves
 	add_option("Load Model");
 	switch (getOption())
@@ -314,8 +315,9 @@ void PedChanger()
 	case 1: Option1: PedWepz = 24; ToggleSpoof13 = true; break;
 	case 2: Option2: PedWepz = 19; ToggleSpoof13 = true; break;
 	case 3: Option3: PedWepz = 21; ToggleSpoof13 = true; break;
-	case 4: Option4: SetStatArrayValue(170, GET_ACTOR_ENUM(self)); break;
-	case 5: Option5: DefautSavedModel = GetStatArrayValue(170); WAIT(1000); if (DefautSavedModel > 1294 || DefautSavedModel == -1)print2("<red>Error", 2000); if(DefautSavedModel >= 0 && DefautSavedModel <= 1294)ChangeModel(self, DefautSavedModel); break;
+	case 4: Option4: PedWepz = 41; ToggleSpoof13 = true; break;
+	case 5: Option5: SetStatArrayValue(170, GET_ACTOR_ENUM(self)); break;
+	case 6: Option6: DefautSavedModel = GetStatArrayValue(170); WAIT(1000); if (DefautSavedModel > 1294 || DefautSavedModel == -1)print2("<red>Error", 2000); if(DefautSavedModel >= 0 && DefautSavedModel <= 1294)ChangeModel(self, DefautSavedModel); break;
 	}
 }
 
