@@ -39,6 +39,7 @@ void SelfOptionP1()
 	add_option("Free Camera");
 	DrawBoolOption("NoRagDollv1", AntiRagDoll);//there are two versions because some people like this or that version so just kept both...
 	DrawBoolOption("NoRagDollv2", AntiRagDoll2);
+	DrawBoolOption("Skip Loot Anim", stoploot);
 	switch (getOption())
 	{
 	case 1: Option1: CLEAR_ACTOR_PROOF_ALL(self); God = !God; if (!God) { CLEAR_ACTOR_PROOF(self, -1); SET_ACTOR_INVULNERABILITY(self, 0); }; break;
@@ -48,6 +49,7 @@ void SelfOptionP1()
 	case 5: Option5: SetFreeCamera(); break;
 	case 6: Option6: AntiRagDoll2 = 0; TASK_CROUCH(self, 0); AntiRagDoll = !AntiRagDoll; break;
 	case 7: Option7: AntiRagDoll = 0; AntiRagDoll2 = !AntiRagDoll2; break;
+	case 8: Option8: stoploot = !stoploot; break;
 	}
 }
 void SelfOptionP2()

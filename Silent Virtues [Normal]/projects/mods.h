@@ -29,6 +29,7 @@ int weathint2;
 int animID;
 int Animint = 0;
 int uVar5;//gringo object
+bool stoploot;
 static Camera camera;
 static float camX = 0.0, camY = 0.0;
 static float xStickLeft, yStickLeft, xStickRight, yStickRight;
@@ -756,6 +757,20 @@ void RideAbleAnimalsV3()
 }
 void AIOBools()
 {
+	if (stoploot)
+	{
+		//stop animations for corpse looting, feather looting, animal skinning
+		if (ACTOR_HAS_ANIM_SET(self, "skinning") || ACTOR_HAS_ANIM_SET(self, "loot_corpse") || ACTOR_HAS_ANIM_SET(self, "loot_corpse_solo_female") || ACTOR_HAS_ANIM_SET(self, "loot_corpse_solo_male") || ACTOR_HAS_ANIM_SET(self, "skin_scraper"))
+		{
+			ACTOR_RESET_ANIMS(self, 1);
+		}
+		//can't seem to skip herb picking anim, as it refuses to give you any herb after the fact.
+		//if (ACTOR_HAS_ANIM_SET(self, "picking_herbs"))
+		//{
+		//	WAIT(1000);
+		//	ACTOR_RESET_ANIMS(self, 1);
+		//}
+	}
 	if (AnimalBypassON)
 	{
 		RideAbleAnimalsV3();
