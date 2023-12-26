@@ -1977,7 +1977,7 @@ void MainLRSwitches()
 			}
 			if (PedWepz == 29)
 			{
-				AUDIO_MUSIC_SUSPEND(1000);
+				AUDIO_MUSIC_SUSPEND(100);
 			}
 			if (PedWepz == 31)
 			{
@@ -2388,8 +2388,9 @@ void MainLRSwitches()
 			}
 			if (PedWepz == 29)
 			{
-				AUDIO_MUSIC_SUSPEND(1000);
-				AUDIO_MUSIC_ONE_SHOT(Plsong[songIndex], 0, 0, 0, 0, 0);
+				AUDIO_MUSIC_SUSPEND(100);
+				WAIT(400);
+				AUDIO_MUSIC_ONE_SHOT(Plsong[songIndex], "IDLE", 0, 0, 0, 0);
 			}
 			if (PedWepz == 30)
 			{
