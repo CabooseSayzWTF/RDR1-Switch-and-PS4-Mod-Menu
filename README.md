@@ -24,16 +24,7 @@ Slluxx - Script Loader For Switch (unreleased atm)<br>
 RouletteBoi - Helper/Native Research<br>
 KeatonTheBot - Switch Tester<br>
 DEv_ShOoTz - PS4 Tester [Brought it to my attention that the menu works on ps4, so he has gained credit as a tester]<br>
-   Since some people seem confused, DEv_ShOoTz did not "port" the menu to ps4, that would of required editing the script to make<br>
-   it compatible with ps4, but the script as is required none of that. The switch compiled script just<br>
-   worked as is on ps4, it just had some incorrect ui prompts. DEv_ShOoTz only made me aware that it worked on ps4.<br>
-   He gained credit as a tester for bringing it to my attention and also helping me understand how AFR<br>
-   worked on ps4 (basically the same thing as layeredfs for switch modding). I since then made dedicated ps4<br>
-   source codes. He edited some strings and what not for his demonstration video and for his AFR pre-compiled<br>
-   release that was included all in his demonstration video. Hope that clears that confusion up. I mean this as no disrespect to<br>
-   DEv_ShOoTz on any grounds. If it wasn't for him, I wouldn't of released PS4 dedicated source code<br>
-   for the menu at all, and it would of prob been a few more years before I had a reason to actually<br>
-   use my modded ps4 that has sat on a shelf for 5 years.<br>
+Since some people seem confused, DEv_ShOoTz did not "port" the menu to ps4, that would of required editing the script to make it compatible with ps4, but the script as is required none of that. The switch compiled script just worked as is on ps4, it just had some incorrect ui prompts. DEv_ShOoTz only made me aware that it worked on ps4. He gained credit as a tester for bringing it to my attention and also helping me understand how AFR worked on ps4 (basically the same thing as layeredfs for switch modding). I since then made dedicated ps4 source codes. He edited some strings and what not for his demonstration video and for his AFR pre-compiled release that was included all in his demonstration video. Hope that clears that confusion up. I mean this as no disrespect to DEv_ShOoTz on any grounds. If it wasn't for him, I wouldn't of released PS4 dedicated source code for the menu at all, and it would of prob been a few more years before I had a reason to actually use my modded ps4 that has sat on a shelf for 5 years.<br>
 <br>
 Side Note: Apparently this menu also works on a jailbroken ps5, I wouldn't see why it wouldn't work but XRaze brought
            it to my attention that it does. I have no way to confirm this or test this as I do not own a ps5 myself.
