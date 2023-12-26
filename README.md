@@ -24,6 +24,23 @@ Slluxx - Script Loader For Switch (unreleased atm)<br>
 RouletteBoi - Helper/Native Research<br>
 KeatonTheBot - Switch Tester<br>
 DEv_ShOoTz - PS4 Tester [Brought it to my attention that the menu works on ps4, so he has gained credit as a tester]<br>
+   Since some people seem confused, DEv_ShOoTz did not "port" the menu to ps4, that would of required editing the script to make<br>
+   it compatible with ps4, but the script as is required none of that. The switch compiled script just<br>
+   worked as is on ps4, it just had some incorrect ui prompts. DEv_ShOoTz only made me aware that it worked on ps4.<br>
+   He gained credit as a tester for bringing it to my attention and also helping me understand how AFR<br>
+   worked on ps4 (basically the same thing as layeredfs for switch modding). I since then made dedicated ps4<br>
+   source codes. He edited some strings and what not for his demonstration video and for his AFR pre-compiled<br>
+   release that was included all in his demonstration video. Hope that clears that confusion up. I mean this as no disrespect to<br>
+   DEv_ShOoTz on any grounds. If it wasn't for him, I wouldn't of released PS4 dedicated source code<br>
+   for the menu at all, and it would of prob been a few more years before I had a reason to actually<br>
+   use my modded ps4 that has sat on a shelf for 5 years.<br>
+<br>
+Side Note: Apparently this menu also works on a jailbroken ps5, I wouldn't see why it wouldn't work but XRaze brought
+           it to my attention that it does. I have no way to confirm this or test this as I do not own a ps5 myself.
+           So if it does, and I assume it will. Special thanks to them for letting me know! For ps5 should just be able
+           to repackage the game with the menu, and or just repackage the game update with the menu and off to the races
+           you go!
+   
 
 # Disclaimer
 For T2 & R* & DE: No original game files are included and I do not condone piracy, everybody should know exactly how to obtain a game backup from there own switch/ps4. I will not link or share methods or means on how to get games as that is illegal and I myself do not support such antics. This menu is made strictly for singleplayer and nothing more. If multiplayer support is ever added, I do not condone the use of this menu in multiplayer. The menu code is publicly available so as is, the code is at your disposal to patch it out from running on later updates.
