@@ -10,7 +10,8 @@ You can use the code from this menu for your own projects, all I ask is that you
 MagicRDR: https://github.com/Foxxyyy/Magic-RDR/releases<br>
 Visual Studio: Project was made using visual studio, confirmed working on vs 2022. Haven't personally tested on anything lower or higher.<br>
 Showcase Video: https://youtu.be/WPehZywCuf4<br>
-How To Install Tut If Needed For Switch: https://youtu.be/n7kRJp1a6cY
+How To Install Tut If Needed For Switch: https://youtu.be/n7kRJp1a6cY<br>
+How To Install Tut If Needed For PS4: https://youtu.be/CDhrHXetLc4?si=835E8QL6Cj4Oe2e_
 
 # Credits
 CabooseSayzWTF - Menu Dev/Native Research<br>
