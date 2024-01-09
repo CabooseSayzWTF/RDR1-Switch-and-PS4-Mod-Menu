@@ -839,14 +839,6 @@
   <ItemGroup>
     <ClInclude Include="..\include\common.h" />
     <ClInclude Include="..\include\constants.h" />
-    <ClInclude Include="..\include\GTAIV\consts32.h" />
-    <ClInclude Include="..\include\GTAIV\natives32.h" />
-    <ClInclude Include="..\include\GTAIV\natives32Old.h" />
-    <ClInclude Include="..\include\GTAV\consts32.h" />
-    <ClInclude Include="..\include\GTAV\consts64.h" />
-    <ClInclude Include="..\include\GTAV\constsShared.h" />
-    <ClInclude Include="..\include\GTAV\natives32.h" />
-    <ClInclude Include="..\include\GTAV\natives64.h" />
     <ClInclude Include="..\include\intrinsics.h" />
     <ClInclude Include="..\include\natives.h" />
     <ClInclude Include="..\include\RDR\consts32.h" />

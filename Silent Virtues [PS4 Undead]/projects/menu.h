@@ -304,10 +304,10 @@ void PedChanger()
 	add_title("Model Changer");
 	add_option("All Models");
 	add_option("Quick Models");
-	add_option("Outfit Editor");//mostly for just john and jack (does not save to gamesave)
-	//add_option("Exploded Head");//unused since I added the componets editor
-	add_option("Component Editor");//very experimental but people may like it, can edit any meshbit id for any model you change to. Basically toggle stuff on and off, much like the gta counterparts for Component, so just named it as Component editor...
+	add_option("Outfit Editor");
+	add_option("Component Editor");
 	DrawBoolOption("Zombify", selfzomb);
+	add_option("Anim Set");
 	add_option("Save Model");//saves to a unused stat in SP but the stat still gets saved regardless to the gamesave, it's actually a MP stat hence why it saves
 	add_option("Load Model");
 	switch (getOption())
@@ -315,11 +315,11 @@ void PedChanger()
 	case 1: Option1: PedWepz = 24; ToggleSpoof13 = true; break;
 	case 2: Option2: PedWepz = 19; ToggleSpoof13 = true; break;
 	case 3: Option3: PedWepz = 21; ToggleSpoof13 = true; break;
-	//case 4: Option4: if (ACTOR_HAS_VARIABLE_MESH(self, 23) && ACTOR_HAS_VARIABLE_MESH(self, 30)){ACTOR_ENABLE_VARIABLE_MESH(self, 23, 0); ACTOR_ENABLE_VARIABLE_MESH(self, 30, 1);if (ACTOR_HAS_VARIABLE_MESH(self, 25))ACTOR_ENABLE_VARIABLE_MESH(self, 30, 0);}else print2("<red>Error", 2000); break;
 	case 4: Option4: PedWepz = 41; ToggleSpoof13 = true; break;
 	case 5: Option5: selfzomb = !selfzomb; if (selfzomb) { DECOR_SET_BOOL(self, "zMarston", 1); ADD_ZOMBIE_TO_ACTOR(self, RAND_INT_RANGE(1, 3), RAND_INT_RANGE(1, 3)); }if (!selfzomb) { DECOR_SET_BOOL(self, "zMarston", 0); ChangeModel(self, GET_ACTOR_ENUM(self)); }; break;
-	case 6: Option6: SetStatArrayValue(170, GET_ACTOR_ENUM(self)); break;
-	case 7: Option7: DefautSavedModel = GetStatArrayValue(170); WAIT(1000); if (DefautSavedModel > 1294 || DefautSavedModel == -1)print2("<red>Error", 2000); if(DefautSavedModel >= 0 && DefautSavedModel <= 1294)ChangeModel(self, DefautSavedModel); break;
+	case 6: Option6: PedWepz = 42; ToggleSpoof13 = true; break;
+	case 7: Option7: SetStatArrayValue(170, GET_ACTOR_ENUM(self)); break;
+	case 8: Option8: DefautSavedModel = GetStatArrayValue(170); WAIT(1000); if (DefautSavedModel > 1294 || DefautSavedModel == -1)print2("<red>Error", 2000); if(DefautSavedModel >= 0 && DefautSavedModel <= 1294)ChangeModel(self, DefautSavedModel); break;
 	}
 }
 

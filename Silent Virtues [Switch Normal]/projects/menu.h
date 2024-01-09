@@ -91,7 +91,7 @@ void SP_1()
 	case 3: Option3: PedWepz = 33; ToggleSpoof13 = true; break;
 	case 4: Option4: PedWepz = 34; ToggleSpoof13 = true; break;
 	case 5: Option5: for (int i = 0; i <= 55; i++) { UI_CHEAT_SET_STATE(i, 1); }; break;
-	case 6: Option6: for (int i = 1; i <= 51; i++){if (!HAS_ACHIEVEMENT_BEEN_PASSED(i));{AWARD_ACHIEVEMENT(i);WAIT(2000);if (i == 51)print2("All Achievements Unlocked", 3000);}}; break;//added a 2 second wait between cheevo unlocks to avoid a kernal panic from unlocking too fast, menu will be unresponsive during this time.
+	case 6: Option6: for (int i = 1; i <= 51; i++) { if (!HAS_ACHIEVEMENT_BEEN_PASSED(i)) { AWARD_ACHIEVEMENT(i); WAIT(2000); if (i == 51)print2("All Achievements Unlocked", 3000); } }; break;//added a 2 second wait between cheevo unlocks to avoid a kernal panic from unlocking too fast, menu will be unresponsive during this time.
 	case 7: Option7: SetStats(2147000000, 2147000000); break;
 	}
 }
@@ -223,6 +223,7 @@ void Sub_Menu5()
 	add_option("Movie Player");
 	add_option("Song Player");
 	add_option("Credits");
+	//add_option("test");
 	switch (getOption())
 	{
 	case 1: Option1: PedWepz = 18; ToggleSpoof13 = true; break;
@@ -232,6 +233,7 @@ void Sub_Menu5()
 	case 5: Option5: PedWepz = 28; ToggleSpoof13 = true; break;
 	case 6: Option6: PedWepz = 29; ToggleSpoof13 = true; break;
 	case 7: Option7: print2("Creators\n <0x00FFFF>CabooseSayzWTF, Im Foxxyyy, & Sockstress", 5000); WAIT(5000); print2("Helpers\n <0xFFA500>Cain532, Mizdx, FuhzBots, JamesTwt\n xTheDevilRazedMe, Slluxx, RouletteBoi \n <red>Function Help/Examples, Reverse Engineering Etc..", 5000); WAIT(5000); print2("Testers\n <0xF700FF>KeatonTheBot", 5000); WAIT(5000); print2("Special Thanks!\n <yellow>XBLToothPik, ap ii intense, jedijosh920, Teh1337Online", 5000); WAIT(5000); print2("SC-CL\n <blue>Without The SC-CL Team This Would Of Never Been Possible!", 5000); break;
+	//case 8: Option8: PedWepz = 99; ToggleSpoof13 = true; break;
 	}
 }
 
@@ -310,6 +312,7 @@ void PedChanger()
 	add_option("Quick Models");
 	add_option("Outfit Editor");
 	add_option("Component Editor");
+	add_option("Anim Set");
 	add_option("Save Model");//saves to a unused stat in SP but the stat still gets saved regardless to the gamesave, it's actually a MP stat hence why it saves
 	add_option("Load Model");
 	switch (getOption())
@@ -318,8 +321,9 @@ void PedChanger()
 	case 2: Option2: PedWepz = 19; ToggleSpoof13 = true; break;
 	case 3: Option3: PedWepz = 21; ToggleSpoof13 = true; break;
 	case 4: Option4: PedWepz = 41; ToggleSpoof13 = true; break;
-	case 5: Option5: SetStatArrayValue(170, GET_ACTOR_ENUM(self)); break;
-	case 6: Option6: DefautSavedModel = GetStatArrayValue(170); WAIT(1000); if (DefautSavedModel > 1294 || DefautSavedModel == -1)print2("<red>Error", 2000); if(DefautSavedModel >= 0 && DefautSavedModel <= 1294)ChangeModel(self, DefautSavedModel); break;
+	case 5: Option5: PedWepz = 42; ToggleSpoof13 = true; break;
+	case 6: Option6: SetStatArrayValue(170, GET_ACTOR_ENUM(self)); break;
+	case 7: Option7: DefautSavedModel = GetStatArrayValue(170); WAIT(1000); if (DefautSavedModel > 1294 || DefautSavedModel == -1)print2("<red>Error", 2000); if(DefautSavedModel >= 0 && DefautSavedModel <= 1294)ChangeModel(self, DefautSavedModel); break;
 	}
 }
 

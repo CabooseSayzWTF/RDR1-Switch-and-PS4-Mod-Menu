@@ -3772,7 +3772,7 @@ extern _native void SET_ACTOR_CUTSCENE_MODE(Actor actor, bool enable)l
 extern _native void REQUEST_ANIM_SET(const char* assetName, int unk)l
 extern _native bool HAS_ANIM_SET_LOADED(const char* assetName)l
 extern _native void REMOVE_ANIM_SET(int pram0)l
-extern _native int SET_ANIM_SET_FOR_ACTOR(int pram0, int pram1, int pram2)l
+extern _native int SET_ANIM_SET_FOR_ACTOR(Actor actor, const char* assetName, int unk)l
 extern _native void RESET_ANIM_SET_FOR_ACTOR(Actor actor, bool reset)l
 extern _native32(0xB1B643E0) void _REPLACE_EXISTING_ANIM_SET(int pram0)l
 extern _native int REQUEST_ACTION_TREE(const char* assetName)l
