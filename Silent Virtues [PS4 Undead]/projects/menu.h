@@ -217,6 +217,7 @@ void Sub_Menu5()
 {
 	add_title("Misc Options");
 	add_option("Script Loader");
+	add_option("Interior Loader");
 	add_option("Animation Player");
 	add_option("Movie Player");
 	add_option("Song Player");
@@ -224,10 +225,11 @@ void Sub_Menu5()
 	switch (getOption())
 	{
 	case 1: Option1: PedWepz = 18; ToggleSpoof13 = true; break;
-	case 2: Option2: PedWepz = 31; ToggleSpoof13 = true; break;
-	case 3: Option3: PedWepz = 28; ToggleSpoof13 = true; break;
-	case 4: Option4: PedWepz = 29; ToggleSpoof13 = true; break;
-	case 5: Option5: print2("Creators\n <0x00FFFF>CabooseSayzWTF, Im Foxxyyy, & Sockstress", 5000); WAIT(5000); print2("Helpers\n <0xFFA500>Cain532, Mizdx, FuhzBots, JamesTwt\n xTheDevilRazedMe, Slluxx, RouletteBoi \n <red>Function Help/Examples, Reverse Engineering Etc..", 5000); WAIT(5000); print2("Testers\n <0x9400D3>DEv_ShOoTz", 5000); WAIT(5000); print2("Special Thanks!\n <yellow>XBLToothPik, ap ii intense, jedijosh920, Teh1337Online", 5000); WAIT(5000); print2("SC-CL\n <blue>Without The SC-CL Team This Would Of Never Been Possible!", 5000); break;
+	case 2: Option2: PedWepz = 30; ToggleSpoof13 = true; break;
+	case 3: Option3: PedWepz = 31; ToggleSpoof13 = true; break;
+	case 4: Option4: PedWepz = 28; ToggleSpoof13 = true; break;
+	case 5: Option5: PedWepz = 29; ToggleSpoof13 = true; break;
+	case 6: Option6: print2("Creators\n <0x00FFFF>CabooseSayzWTF, Im Foxxyyy, & Sockstress", 5000); WAIT(5000); print2("Helpers\n <0xFFA500>Cain532, Mizdx, FuhzBots, JamesTwt\n xTheDevilRazedMe, Slluxx, RouletteBoi \n <red>Function Help/Examples, Reverse Engineering Etc..", 5000); WAIT(5000); print2("Testers\n <0x9400D3>DEv_ShOoTz", 5000); WAIT(5000); print2("Special Thanks!\n <yellow>XBLToothPik, ap ii intense, jedijosh920, Teh1337Online", 5000); WAIT(5000); print2("SC-CL\n <blue>Without The SC-CL Team This Would Of Never Been Possible!", 5000); break;
 	}
 }
 

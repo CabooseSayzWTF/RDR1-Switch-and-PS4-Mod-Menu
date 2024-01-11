@@ -4,8 +4,8 @@
 
 //some of this is unused, will clean up bools, ints, etc later.
 //code is a hot mess, have fun looking at it ;)
-bool AnimalBypassON, NoClip2, aimbott2, lodmod, God, HrsStam, ExplosiveRounds, DeleteGun, BurnGun, MedusaKill, MedusaDestroy, MedusaXplode, MedusaBurn, AntiRagDoll, IgnoreON, IrishDrunk, DeadEye1Hit, NoclipON, DeadEyeInf1, isSaved = false, StandStillFucker = false, PedzFollow, CopyGun, nReload, Timez, FlameON, CarSpeedBoost;
-int CombatModeSave = 0, TargetMode = 0, modelgotloaded, SpawnPed[10], SpawnMount1, SpawnDra[4];
+bool AnimalBypassON, aimbott2, God, HrsStam, ExplosiveRounds, DeleteGun, BurnGun, MedusaKill, MedusaDestroy, MedusaXplode, MedusaBurn, AntiRagDoll, IgnoreON, IrishDrunk, DeadEye1Hit, NoclipON, DeadEyeInf1, isSaved = false, StandStillFucker = false, PedzFollow, CopyGun, nReload, Timez, FlameON, CarSpeedBoost;
+int TargetMode = 0, SpawnPed[10], SpawnMount1, SpawnDra[4];
 vector3 savedPos, pedztp, animaltp, ve15, ve16, ve17, ve18, ve19, ve20, ve23, ve24, ve25, ve40, ve41, waypointpos1, positionWP;
 eActor SpawnCar1;
 bool ToggleSpoof13;
@@ -13,8 +13,6 @@ bool NoWanted;
 bool UnlimitedAmmo;
 bool GoldIt;
 bool BGPAI2;
-bool cular;
-bool pausew;
 int tghat = 0, lawID, bountedit, pedtask;
 bool AiControl, PedCrip, PedZomb;
 bool TODLoop;
@@ -22,9 +20,7 @@ bool TODLoop2;
 bool AutoDead;
 bool aimbott;
 bool Phos;
-bool erhead;
-int undercolor = 0;
-int testwtf, outfitsave;
+int testwtf;
 int testwtf2;
 int deafx;
 int deafx2;
@@ -71,6 +67,7 @@ int DETog = 0;
 int DELvl = 0;
 int DETime = 0;
 int animsetid = 0;
+int mornstar = 0, ranchbarn = 0, marshouse = 0, policestat = 0, bankflr = 0, anthro = 0, ridgefarm = 0, campoburn = 0, miltcamp = 0, cavdr = 0, villadoor = 0, gravstn = 0, bridgebroke = 0, cata1 = 0;
 bool AntiRagDoll2;
 bool tpwp;
 static int songIndex = 0;
@@ -93,6 +90,8 @@ char* LawChar[] = { "TownPosse1", "TownPosse3", "SheriffTux", "USMarshall2", "US
 char* ProstChar[] = { "Pros2", "Pros5", "Pros11", "MexPros", "BlackPros", "CaucasionPros", "AsianPros" };
 char* AniChar[] = { "Bear", "Husky Dog", "Elk", "Giant Bat", "Zombie Cougar", "Wolf", "Buck", "Snake" };
 char* MiscChar[] = { "NakedGuy", "HerbertMoon", "MysteryMan", "YoungJack", "Preacher", "Nun", "DeadDutch" };
+char* INTLoadChar[] = { "Blackwater Morning Star", "MacFarlanes Barn", "Marston House", "Blackwater Police Station", "Blackwater Bank", "Blackwater Anthropology", "Ridgewood Farm", "Campo Mirada", "Torquemada Military Camp", "El Matadero Cave Door", "Escalera Villa Door", "Beechers Hope Graves", "Bridges", "Catacombs" };
+//char* fireC[] = { "dlc_agv_zombieFire01x", "dlc_agv_zombieDebris01x", "dlc_arm_zombieFire01x", "dlc_but_zombieFire01x", "dlc_cas_zombieFire01x", "dlc_chu_zombieFire01x", "dlc_chu_zombieDebris01x", "dlc_cri_zombieFire01x", "dlc_dix_zombieFire01x", "dlc_elm_zombieFire01x", "dlc_elm_zombieDebris01x", "dlc_esc_zombieFire01x", "dlc_esc_zombieDebris01x", "dlc_frb_zombieFire01x", "dlc_gap_zombieFire01x", "dlc_hen_zombieFire01x", "dlc_hen_zombieDebris01x", "dlc_lsh_zombieFire01x", "dlc_lsh_zombieDebris01x", "dlc_mtp_zombieFire01x", "dlc_nos_zombieDebris01x", "dlc_nos_zombieFire01x", "dlc_pik_zombieFire01x", "dlc_pln_zombieFire01x", "dlc_ram_zombieFire01x", "dlc_rat_zombieFire01x", "dlc_rwf_zombieFire01x", "dlc_rwf_zombieDebris01x", "dlc_sol_zombieFire01x", "dlc_tes_zombieFire01x", "dlc_thi_zombieFire01x", "dlc_thi_zombieDebris01x", "dlc_tor_zombieFire01x", "dlc_twr_zombieFire01x", "dlc_twr_zombieDebris01x", "dlc_upr_zombieFire01x", "dlc_ven_zombieFire01x", "dlc_ven_zombieDebris01x", "dlc_war_zombieFire01x", "dlc_war_zombieDebris01x", "dlc_blk_zombieFire01x", "dlc_blk_zombieDebris01x", "dlc_blk_zombieGraffiti01x" };
 char* PPPChar[] = { "FX_Deadeye.ppp", "UI_Pause.ppp", "MP_ShowdownBlueTeam.ppp" };
 char* AnimChar[] = { "alerted_rifle_right", "angrymob", "angrymob_torch", "anthro01_struggle", "any_craftBasket", "arm_wrestling", "bandito_beatup", "banker_hostage", "Bar_lean_stand", "bar_stand", "begging", "bench_chair", "bench_stool", "binoc_pickup", "blacksmith", "Blacksmith_chopwood", "blow_the_hatch", "body_left_for_dead_loop", "book_shelf", "browse_table_low",  "campfire_talk", "CampfireTreasureHunter", "Cannibal_fam_clue_search", "car_wash", "chair_pot_smash", "chair_sit", "chair_sit_newspaper", "chair_sit_sleep_attach", "chair_sit_table_read", "cheer_on_seat", "chop_chicken", "chop_fish", "clean_rifle", "cooking", "cower", "crazy_poking", "crying_linked", "cs_fbi04_taunt01", "cs_tumbleweed_getup", "digging", "dog_fetch", "door_kick_all_weapon", "door_kick_rifle", "door_locked", "drink_from_barrel", "drinking", "drunk_react", "duck_hunt", "dynamite_AI_controlled", "dynamite_table", "factory_foreman", "factory_lathe", "factory_lumber_stacker", "factory_shovel_coal", "fake_blackjack_dealer", "fake_FiveFingerFillet", "fbi02_cs03_b", "fbi04_wounded_01", "fbi04_wounded_02", "fbi04_wounded_03", "feed_chickens", "fema_stir_cauldron", "firesquad_heldback", "firesquad_shove", "fix_car", "flirting_whore", "Flower_search", "free_bonnie", "frustrated_racer", "furnace", "get_drunk", "Giveaway_Footlocker", "grave01_door_open", "Grave03_Seth_idle", "grave_robber_attack", "grind_corn", "gun01_drunk", "hammering", "Herbalist_sitting", "hold_door_closed", "hostage_kneel", "hostage_shaky", "hostage_sit_loop", "Indian_Sit_Ground", "Indian_Sit_Ground_Smoke", "Intro01_v", "item_bait", "item_bottle", "jake_read", "kick_door", "kick_hogtied_victim", "kneel_hammer", "knl_hoe_soil", "knl_watertrough", "landon_smoking", "lean_fence_back", "lean_fence_H_talking", "lean_fence_L", "lean_rail", "lean_rail_drink", "lean_rail_whore", "lean_table", "lie_sleep_on_bed", "lie_sleep_on_bed_l", "lie_sleep_on_bed_r", "light_candle", "light_candle_multi", "locked_door", "locked_gate", "look_around_corner", "look_distance_binocs", "look_out_window_L", "look_out_window_R", "Loot_Corpse", "loot_corpse_solo_female", "loot_corpse_solo_male", "loot_solo_loop", "luisamomloop", "man_behind_bars", "man_in_prison", "Marshal04_deathpose1", "Marshal04_deathpose2", "Marshal04_deathpose3", "Marshal04_deathpose4", "Marshal04_deathpose5", "Marshal04_deathpose6", "Marshal04_farmer_deathpose", "Marshal04_femfarmer_deathpose", "Marshal04_laborer_deathpose", "Marshal04_wife_deathpose", "merchant02_idle", "merchant_lay_bed", "mex_blacksmith", "mex_cartVendor", "mex_craftBasket", "mex_cry_overBody", "mex_dusting_maid", "mex_eat_apple", "mex_flirt_sit_link", "mex_flirt_sit_stool_attached_link","mex_leanwall", "mex_peerOut_window", "mex_pickGarbage", "mex_playGuitar", "mex_prayer_oldWoman", "mex_sitGround", "mex_sitGround_link_loop", "mex_sleepBed_l", "mex_sleepBed_r", "mex_stool_sit", "mex_table_service", "mex_tableService_bartender", "mex_talking_soldiers_link", "mex_towerGuard", "mex_washCloths", "mexs_doorknock", "milk_cow", "mourn_dead_body", "Mourn_loop", "mourn_suicide", "MP_ignite_bomb", "mp_rig_tnt","multistage_hoe", "multistage_lumber", "multistage_sweeping", "multistage_torch", "musician_wife_idle", "nastas_sack", "NPC_BuryDynamite", "NPC_Lockpicking_Door", "npc_open_safe", "oldf_pray", "open_big_door", "open_crate_ambient", "open_credenza", "open_vault_door", "opium_pipe", "organize_shelf", "organize_wagon", "outhouse", "pan_gold", "panic_female", "Pee", "pistol_whip", "pitch_hay", "player_detonator", "Player_DropDynamite", "player_pickup_hat", "player_sit_movie", "player_sleep_gun_left", "player_sleep_gun_right", "player_sleep_tent", "player_smoking_lean", "pole_hostage", "preaching", "preaching_at_podium", "Prostitute_bed", "ranch04_reflect", "ranch08_close1", "ranch08_close2", "Rand_Idle_NearWall_nospawn", "Rand_Idle_NearWall_Shoulder_L", "Rand_Idle_NearWall_Shoulder_R", "Rand_Idle_Sit_Ground_Bad", "rand_idle_stand", "rand_idle_stand_nospawn", "RCM23_kneel_idle", "RCM_01_CS01_JebIdle", "RCM_02_CS01_Books", "RCM_03_CS02_Water_sweeping", "RCM_04_CS03_Musician", "RCM_05_CS03_CryingIdle", "RCM_05_CS04_CannibalIdle", "RCM_05_CS05_cannibal_link", "RCM_11_CS03_preacher", "RCM_12_CS02_PotStir", "RCM_12_CS03_fix_wing", "RCM_13_CS01_Jenny", "RCM_14_CS01_Lean_letter", "RCM_14_CS02_sleepChair", "RCM_15_CS04_NunIdle", "RCM_15_CS05_MysteryMan", "RCM_16_CS02_NunIdle", "RCM_17_CS01_Mackenna", "RCM_17_CS02_Spatchcock", "RCM_17_CS03_Mackenna", "RCM_20_CS01_clara_pray", "RCM_20_CS02_richman_bar", "RCM_20_CS03_clara_pray", "RCM_23_CS01_Basilio", "RCM_32_CS01_Agent", "RCM_Abandoned", "RCM_AztecGold_Treasure", "RCM_horse_love_A", "RCM_Horse_Love_B", "reb03_detach_train", "reb05_struggle2", "rebel02_cs02_v", "rebel_cheer_pistol", "rebel_cheer_rifle", "rebel_riot01", "rebel_riot02", "rebel_riot03", "reload_slow", "reyes_frees_marston", "reyes_saves", "ricketts_tnt_crates", "ring_bell", "riverwash", "rockclimbing", "saved_by_reyes", "searching", "searching_box", "shaky_chair", "shaky_cover", "shaky_idle", "sharpen_axe", "shopkeep", "shopkeep_bartender", "shopkeeper_return", "shotgun_boss", "sit_barrel", "Sit_BlackJack", "sit_camp_coffee_drink", "sit_chair_comfy", "sit_chair_couch", "sit_chr_dsk_letr", "sit_chr_dsk_wrk", "sit_church", "sit_cleanknife", "sit_cleanpistol", "sit_cleanrifle", "sit_cut_meat", "sit_docks", "sit_drinkbrandy_s_any", "sit_eat_dinner", "sit_embroidery_e_any", "sit_fence_low", "sit_fence_nospawn", "sit_flirt_couch_link", "Sit_Ground_Campfire_Tend", "Sit_Ground_Drink", "Sit_Ground_Only", "Sit_Ground_Play_Cards", "sit_ground_play_guitar", "sit_ground_play_harmonica", "sit_ground_smoke", "Sit_Ground_Smoke_Pipe", "sit_headinhands_n_any", "sit_key_twirling", "sit_no_table", "sit_piano_w_piano", "sit_picknose_e_any", "sit_sleepinchair_n_any", "sit_sleeponbench_n_any", "sit_smokepipe_e_any", "sit_yawning_n_any", "skin_scraper", "sleeping", "sleeping_chair_scripted", "sleeping_wall_scripted", "smoker_idle", "smoking_lean", "smoking_stand", "soldier_banging_on_door", "son_crouchGetup", "SpatchCock_idle", "spittoon", "spyGlass", "stand_adjuststocking_w_whore", "stand_announce", "stand_armoir", "stand_bar_drink", "stand_bar_need_drink", "stand_bartender_bar_work", "stand_bartender_pour", "stand_check_clipboard", "stand_cheer", "stand_chop_door", "stand_chopveggies_w_any", "stand_cleanwindow_w_any", "stand_cupboard", "stand_dnd_rowdydrink", "stand_drunk_dancing_link", "stand_drunkdancing_e_any", "stand_eat_fruit", "stand_fiddle_w_fiddle", "stand_guntricks_e_any", "stand_hammer_table", "stand_hammer_wall", "stand_hammerground_w_any", "stand_holy_water", "stand_key_twirling", "stand_kneelvomit_n_any", "stand_knock_on_door", "stand_lookdistance_w_any", "stand_makebed_w_any", "stand_minerock_w_any", "stand_open_chest", "stand_paint", "stand_peeing_b_any", "stand_pocketwatch_e_any", "stand_read", "stand_reprimand", "stand_sellPaper", "stand_shove", "stand_smokelean_e_any", "stand_spit", "stand_stirringpot_w_any", "stand_sweeping_w_any", "stand_taunt_far", "stand_taunt_near", "stand_telegraph", "stand_torch", "stand_washfacebowl_n_any", "stand_waterpump", "stand_whore_dancing", "stand_worried_n_any", "stand_wring_hands", "stand_yelling", "stand_yelling_down", "stand_yelling_mid", "stand_yelling_up", "stool_sit_newspaper", "TES_CoverIntro_Player", "TES_CoverIntro_Sheriff", "thanks", "ticket_taker_link", "train_boarding", "train_climb_left", "train_climb_right", "train_engineer", "twin_rocks_dad", "undertaker_measure", "US_talking_soldiers_link", "wait_at_door", "wall_phone", "wash_basin", "watch_idle", "wave_flag", "weeping", "whittle_wood", "whore_flirt", "wilderness_drunk_A", "wilderness_drunk_B", "window_shopping", "dlc_bonnie_sit_rifle", "dlc_cannibal_man", "dlc_dead_rise_again1", "dlc_eating_dynamic", "dlc_female_cower", "dlc_find_blunderbuss", "dlc_landon_sitting", "dlc_mckenna1", "dlc_mother_superior_waiting", "dlc_mourn_suicide", "dlc_outbreak3", "dlc_sasquatch2", "dlc_survivor_fight", "dlc_survivor_kneel_rfl", "dlc_survivor_low_wall_rfl", "dlc_survivor_roof_rfl", "dlc_survivor_stand_rfl", "dlc_survivor_window_rfl", "z_dlc_z_beat_door", "z_dlc_z_climb", "z_dlc_z_family" };
 char* Provisions[] = { "sn_z_t", "sn_z_e", "sn_z_to", "sn_z_r", "sn_z_ea", "sn_zb_t", "sn_zb_e", "sn_zb_c", "sn_zb_h", "sn_zc_t", "sn_zc_e", "sn_zc_c", "sn_zc_h", "sn_zy_t", "sn_zy_e", "sn_zy_c", "sn_zy_h", "sn_zw_t", "sn_zw_e", "sn_zw_c", "sn_zw_h", "sn_zh_e", "sn_zh_h", "sn_zchT", "sn_zchE", "sn_zchC", "sn_zchH", "sn_zsqT", "sn_zsqE", "sn_zsqH", "sn_zunH", "sn_zunR", "sn_zbat", "sn_zd_t", "sn_zd_e", "sn_zbuH", "sn_zbuE", "sn_zboT", "sn_zboE", "sn_h_bw", "sn_h_ds", "sn_h_gc", "sn_h_hs", "sn_h_pp", "sn_h_po", "sn_h_rs", "sn_h_vs", "sn_h_wf", "sn_h_wo", "sn_a1_m", "sn_a1_c", "sn_b1_w", "sn_b2_m", "sn_b2_c", "sn_b2_f", "sn_b2_t", "sn_b3_m", "sn_b3_f", "sn_b4_m", "sn_t_9", "sn_t_8", "sn_t_7", "sn_t_6", "sn_t_5", "sn_t_4", "sn_t_3", "sn_t_2", "sn_t_1", "sn_h2_s", "sn_h2_m", "sn_m1_h", "sn_m1_m", "sn_c5_m", "sn_d3_f", "sn_d3_m", "sn_c5_h", "sn_g3_f", "sn_w1_h", "sn_w1_p", "sn_w1_m", "sn_v_f", "sn_sb_f", "sn_s3_s", "sn_s2_f", "sn_s2_m", "sn_s1_s", "sn_s1_m", "sn_r2_f", "sn_r2_m", "sn_r1_m", "sn_p1_m", "sn_o1_f", "sn_nb_h", "sn_nb_s", "sn_nb_t", "sn_nb_m", "sn_xc_h", "sn_xc_f", "sn_xc_p", "sn_xc_m", "sn_xb_f", "sn_xb_h", "sn_xb_c", "sn_xb_t", "sn_xb_m", "sn_xw_f", "sn_xw_h", "sn_xw_m", "sn_h1_f", "sn_g2_h", "sn_g2_f", "sn_g2_t", "sn_g2_c", "sn_g2_m", "sn_g1_m", "sn_f1_f", "sn_f1_m", "sn_e2_s", "sn_e2_a", "sn_e2_m", "sn_e1_f", "sn_d2_f", "sn_d1_s", "sn_d1_m", "sn_c4_f", "sn_c3_p", "sn_c3_m", "sn_c2_p", "sn_c2_f", "sn_c2_c", "sn_c2_m", "sn_c1_f", "sn_b8_s", "sn_b8_h", "sn_b8_m", "sn_b7_s", "sn_b7_a", "sn_b7_m", "sn_b6_f", "sn_b6_c", "sn_b6_m", "sn_b5_t", "sn_b5_s", "sn_b5_m", "sn_b4_s", "sn_b4_h" };
@@ -234,7 +233,7 @@ void UseAnimSet(const char* animSet)
 {
 	if (!RequestAnimSet(animSet))
 	{
-		print2("Couldn't Load Animset", 2000);
+		print2("Error", 2000);
 		return;
 	}
 	RESET_ANIM_SET_FOR_ACTOR(self, 1);
@@ -298,19 +297,19 @@ void SetTargetMode()
 	{
 		//CombatModeSave = GET_PLAYER_COMBATMODE();//no real reason to save it
 		SET_PLAYER_COMBATMODE(0);
-		print2("<red>Target Mode</red>: Normal", 4000);
+		print2("Normal", 4000);
 		TargetMode = 1;
 	}
 	else if (TargetMode == 1)
 	{
 		SET_PLAYER_COMBATMODE(2);
-		print2("<red>Target Mode</red>: Casual", 4000);
+		print2("Casual", 4000);
 		TargetMode = 2;
 	}
 	else if (TargetMode == 2)
 	{
 		SET_PLAYER_COMBATMODE(1);
-		print2("<red>Target Mode</red>: Expert", 4000);
+		print2("Expert", 4000);
 		TargetMode = 0;
 	}
 }
@@ -604,12 +603,6 @@ void AIOBools()
 		{
 			ACTOR_RESET_ANIMS(self, 1);
 		}
-		//can't seem to skip herb picking anim, as it refuses to give you any herb after the fact.
-		//if (ACTOR_HAS_ANIM_SET(self, "picking_herbs"))
-		//{
-		//	WAIT(1000);
-		//	ACTOR_RESET_ANIMS(self, 1);
-		//}
 	}
 	if (Phos)
 	{
@@ -1142,7 +1135,6 @@ void GiveSpecialWeapon()
 }
 void GIVE_ITEMS()
 {
-	//need to re-do for real hardware support in the future, not a priority rn. Should work fine on real hardware however softlocks could occur for 20-30 seconds. (does on normal)
 	//gives one of every item
 	for (int items = 0; items <= 78; items++)//should be fixed for ryu and real hardware (30 sec soft lock fix)
 	{
@@ -1262,7 +1254,7 @@ void ZombifyPeds()
 			{
 				ADD_ZOMBIE_TO_ACTOR(SpawnPed[i], RAND_INT_RANGE(1, 3), RAND_INT_RANGE(1, 3));
 				DECOR_SET_BOOL(SpawnPed[i], "Zombie", 1);
-				TURN_ACTOR_INTO_ZOMBIE(SpawnPed[i], ACTOR_UN_ZOMBIE_Fast_01);// this works and makes them act like retchers, however i rather them be normal zombies, will figure out later.
+				TURN_ACTOR_INTO_ZOMBIE(SpawnPed[i], ACTOR_UN_ZOMBIE_Fast_01);
 				AI_SET_TR_PROGRAM_FOR_ACTOR(SpawnPed[i], "Zombie");
 			}
 		}
@@ -1421,6 +1413,11 @@ void MainLRSwitches()
 			stradd_s(modmsg, "Song Player\n<x>:Confirm\n<action>:Cancel\n<y>:Stop Song\n<dpadleftright>:Song:<orange> ");
 			stradd_s(modmsg, Plsong[songIndex]);
 		}
+		if (PedWepz == 30)
+		{
+			stradd_s(modmsg, "Interior Loader\n<x>:Confirm\n<action>:Cancel\n<dpadleftright>:Interior/State:<orange> ");
+			stradd_s(modmsg, INTLoadChar[interiorint]);
+		}
 		if (PedWepz == 31)
 		{
 			stradd_s(modmsg, "Animation Player\n<x>:Confirm\n<action>:Cancel\n<y>:Stop Animation\n<dpadleftright>:Animation:<orange> ");
@@ -1440,7 +1437,7 @@ void MainLRSwitches()
 			if (proved != 146 && proved != 147)stradd_s(modmsg, UI_GET_STRING(Provisions[proved]));
 			if (proved == 146)stradd_s(modmsg, "Give All Safe Items");
 			if (proved == 147)stradd_s(modmsg, "Remove All Items");
-			print2("Everything is here, however be warned. The provisions have a hard limit (120 items). If you go over it you won't be able to save the game and or will crash when going to provisions tab in the satchel. Give All Safe Items gives all acceptable items", 1000);
+			print2("Provisions have a hard limit (120 items). If you go over it you won't be able to save the game and or will crash when going to provisions tab in the satchel. Give All Safe Items gives all acceptable items", 1000);
 		}
 		if (PedWepz == 40)
 		{
@@ -1465,10 +1462,6 @@ void MainLRSwitches()
 		{
 			stradd_s(modmsg, "Animation Set\n<x>:Confirm\n<cancel>:Cancel\n<dpadleftright>:Set<orange> ");
 			stradd_s(modmsg, AnimSetC[animsetid]);
-		}
-		if (PedWepz == 99)//test switch function
-		{
-			//
 		}
 		PRINT_HELP_B(modmsg, 500.0f, false, 1, 2, 1, "", "");
 		if (GetButton(DPAD_LEFT))
@@ -1594,6 +1587,11 @@ void MainLRSwitches()
 				songIndex--;
 				if (songIndex < 0) songIndex = 44;
 			}
+			if (PedWepz == 30)
+			{
+				interiorint--;
+				if (interiorint < 0) interiorint = 13;
+			}
 			if (PedWepz == 33)
 			{
 				consume--;
@@ -1618,11 +1616,6 @@ void MainLRSwitches()
 			{
 				animsetid--;
 				if (animsetid < 0) animsetid = 6;
-			}
-			if (PedWepz == 99)//for testing
-			{
-				meshtester--;
-				if (meshtester < 0) meshtester = 60;
 			}
 		}
 		if (GetButtonDown(DPAD_LEFT))
@@ -1790,6 +1783,11 @@ void MainLRSwitches()
 				songIndex++;
 				if (songIndex > 44) songIndex = 0;
 			}
+			if (PedWepz == 30)
+			{
+				interiorint++;
+				if (interiorint > 13) interiorint = 0;
+			}
 			if (PedWepz == 33)
 			{
 				consume++;
@@ -1814,11 +1812,6 @@ void MainLRSwitches()
 			{
 				animsetid++;
 				if (animsetid > 6) animsetid = 0;
-			}
-			if (PedWepz == 99)//for testing
-			{
-				meshtester++;
-				if (meshtester > 60) meshtester = 0;
 			}
 		}
 		if (GetButton(DPAD_DOWN))
@@ -1914,25 +1907,11 @@ void MainLRSwitches()
 						print2("Component Already Disabled", 2000);
 				}
 				else
-					print2("Component Not Valid For Current Model", 2000);
+					print2("Component Not Valid", 2000);
 			}
 			if (PedWepz == 42)
 			{
 				UseAnimSet(AnimSetC[animsetid]);
-			}
-			if (PedWepz == 99)//for testing
-			{
-				if (ACTOR_HAS_VARIABLE_MESH(GET_VEHICLE(self), meshtester))
-				{
-					if (ACTOR_IS_VARIABLE_MESH_ENABLED(GET_VEHICLE(self), meshtester))
-					{
-						ACTOR_ENABLE_VARIABLE_MESH(GET_VEHICLE(self), meshtester, 0);
-					}
-					else
-						print2("Component Already Enabled", 2000);
-				}
-				else
-					print2("Component Not Valid For Current Vehicle", 2000);
 			}
 		}
 		if (GetButton(BUTTON_RB))
@@ -2307,7 +2286,7 @@ void MainLRSwitches()
 					TeleportActor(735.07f, 78.3f, 1289.05f);
 					SET_ACTOR_HEADING(self, 87.0f, 1);
 					WaitForWorldToLoad(1);
-					print2("Loading theater interior", 3000);
+					print2("Loading", 3000);
 					WAIT(3000);
 					TeleportActor(712.0f, 79.0f, 1289.05f);
 					SET_ACTOR_HEADING(self, 87.0f, 1);
@@ -2321,6 +2300,101 @@ void MainLRSwitches()
 			{
 				AUDIO_MUSIC_SUSPEND(1000);
 				AUDIO_MUSIC_ONE_SHOT(Plsong[songIndex], 0, 0, 0, 0, 0);
+			}
+			if (PedWepz == 30)
+			{
+				if (interiorint == 0)
+				{
+					if (mornstar == 0) { ENABLE_WORLD_SECTOR("morningStar"); ENABLE_CHILD_SECTOR("blk_barge01Props01x"); ENABLE_CHILD_SECTOR("blk_barge01x"); ENABLE_CHILD_SECTOR("mor_morningStar01_int_Props01x"); ENABLE_CHILD_SECTOR("mor_morningStar_int_01x"); ENABLE_CHILD_SECTOR("mor_morningStar_int_shade_01x"); print2("Enabled", 2000); mornstar = 1; }
+					else if (mornstar == 1) { DISABLE_WORLD_SECTOR("morningStar"); DISABLE_CHILD_SECTOR("blk_barge01Props01x"); DISABLE_CHILD_SECTOR("blk_barge01x"); DISABLE_CHILD_SECTOR("mor_morningStar01_int_Props01x"); DISABLE_CHILD_SECTOR("mor_morningStar_int_01x"); DISABLE_CHILD_SECTOR("mor_morningStar_int_shade_01x"); print2("Disabled", 2000); mornstar = 0; }
+				}
+				if (interiorint == 1)
+				{
+					if (ranchbarn == 0) { ENABLE_CHILD_SECTOR("hen_barn02x"); ENABLE_CHILD_SECTOR("hen_barn02props01x"); DISABLE_CHILD_SECTOR("hen_barn01x"); DISABLE_CHILD_SECTOR("hen_barn01props01x"); DISABLE_CHILD_SECTOR("hen_barn01props02x"); ENABLE_CHILD_SECTOR("hen_windmill01x"); ENABLE_CHILD_SECTOR("hen_windmill02x"); print2("Burned", 2000); ranchbarn = 1; }
+					else if (ranchbarn == 1) { DISABLE_CHILD_SECTOR("hen_barn02x"); DISABLE_CHILD_SECTOR("hen_barn02props01x"); ENABLE_CHILD_SECTOR("hen_barn01x"); ENABLE_CHILD_SECTOR("hen_barn01props01x"); ENABLE_CHILD_SECTOR("hen_barn01props02x"); DISABLE_CHILD_SECTOR("hen_windmill01x"); DISABLE_CHILD_SECTOR("hen_windmill02x"); ENABLE_CHILD_SECTOR("hen_windmill02x"); ENABLE_CHILD_SECTOR("hen_windmill01x"); print2("Normal", 2000); ranchbarn = 0; }
+				}
+				if (interiorint == 2)
+				{
+					if (marshouse == 0) { DISABLE_CHILD_SECTOR("beh_house02x"); DISABLE_CHILD_SECTOR("beh_house02props01x"); ENABLE_CHILD_SECTOR("beh_house01x"); ENABLE_CHILD_SECTOR("beh_house01props01x");; print2("Enabled", 2000); marshouse = 1; }
+					else if (marshouse == 1) { ENABLE_CHILD_SECTOR("beh_house02x"); ENABLE_CHILD_SECTOR("beh_house02props01x"); DISABLE_CHILD_SECTOR("beh_house01x"); DISABLE_CHILD_SECTOR("beh_house01props01x"); print2("Disabled", 2000); marshouse = 0; }
+				}
+				if (interiorint == 3)
+				{
+					if (policestat == 0) { ENABLE_CHILD_SECTOR("blk_policeStation_int_02x"); ENABLE_CHILD_SECTOR("blk_policeStation01_int_props02x"); print2("2nd Floor Enabled", 2000); policestat = 1; }
+					else if (policestat == 1) { DISABLE_CHILD_SECTOR("blk_policeStation_int_02x"); DISABLE_CHILD_SECTOR("blk_policeStation01_int_props02x"); print2("2nd Floor Disabled", 2000); policestat = 0; }
+				}
+				if (interiorint == 4)
+				{
+					if (bankflr == 0) { ENABLE_CHILD_SECTOR("blk_bank_int_02x"); ENABLE_CHILD_SECTOR("blk_bank01_int_Props02x"); print2("2nd Floor Enabled", 2000); bankflr = 1; }
+					else if (bankflr == 1) { DISABLE_CHILD_SECTOR("blk_bank_int_02x"); DISABLE_CHILD_SECTOR("blk_bank01_int_Props02x"); print2("2nd Floor Disabled", 2000); bankflr = 0; }
+				}
+				if (interiorint == 5)
+				{
+					if (anthro == 0) { ENABLE_CHILD_SECTOR("blk_archeologist01Props01x"); print2("Enabled", 2000); anthro = 1; }
+					else if (anthro == 1) { DISABLE_CHILD_SECTOR("blk_archeologist01Props01x"); print2("Disabled", 2000); anthro = 0; }
+				}
+				if (interiorint == 6)
+				{
+					if (ridgefarm == 0) { ENABLE_CHILD_SECTOR("rwf_mainhouse01props02x"); DISABLE_CHILD_SECTOR("rwf_barn01xprops01x"); ENABLE_CHILD_SECTOR("rwf_barn01xprops02x"); ENABLE_CHILD_SECTOR("rwf_livingRoom01props02x"); DISABLE_CHILD_SECTOR("rwf_livingRoom01props01x"); print2("Blood/Mess Enabled", 2000); ridgefarm = 1; }
+					else if (ridgefarm == 1) { DISABLE_CHILD_SECTOR("rwf_mainhouse01props02x"); ENABLE_CHILD_SECTOR("rwf_barn01xprops01x"); DISABLE_CHILD_SECTOR("rwf_barn01xprops02x"); DISABLE_CHILD_SECTOR("rwf_livingRoom01props02x"); ENABLE_CHILD_SECTOR("rwf_livingRoom01props01x"); print2("Blood/Mess Disabled", 2000); ridgefarm = 0; }
+				}
+				if (interiorint == 7)
+				{
+					if (campoburn == 0) { ENABLE_WORLD_SECTOR("campoMiradaAfter"); DISABLE_WORLD_SECTOR("campoMiradaBefore"); print2("Burned", 2000); campoburn = 1; }
+					else if (campoburn == 1) { DISABLE_WORLD_SECTOR("campoMiradaAfter"); ENABLE_WORLD_SECTOR("campoMiradaBefore"); print2("Normal", 2000); campoburn = 0; }
+				}
+				if (interiorint == 8)
+				{
+					if (miltcamp == 0) { DISABLE_CHILD_SECTOR("tor_militaryCamp02x"); ENABLE_CHILD_SECTOR("tor_militaryCamp01x"); print2("Enabled", 2000); miltcamp = 1; }
+					else if (miltcamp == 1) { ENABLE_CHILD_SECTOR("tor_militaryCamp02x"); DISABLE_CHILD_SECTOR("tor_militaryCamp01x"); print2("Disabled", 2000); miltcamp = 0; }
+				}
+				if (interiorint == 9)
+				{
+					if (cavdr == 0) { ENABLE_CHILD_SECTOR("emt_cavedoor01x"); DISABLE_CHILD_SECTOR("emt_cavedoor02x"); print2("Destroyed", 2000); cavdr = 1; }
+					else if (cavdr == 1) { DISABLE_CHILD_SECTOR("emt_cavedoor01x"); ENABLE_CHILD_SECTOR("emt_cavedoor02x"); print2("Normal", 2000); cavdr = 0; }
+				}
+				if (interiorint == 10)
+				{
+					if (villadoor == 0) { DISABLE_CHILD_SECTOR("esc_villaWall04x"); ENABLE_CHILD_SECTOR("esc_villaWall05x"); print2("Burned", 2000); villadoor = 1; }
+					else if (villadoor == 1) { ENABLE_CHILD_SECTOR("esc_villaWall04x"); DISABLE_CHILD_SECTOR("esc_villaWall05x"); print2("Normal", 2000); villadoor = 0; }
+				}
+				if (interiorint == 11)
+				{
+					if (gravstn == 0) { ENABLE_CHILD_SECTOR("beh_grave01x"); ENABLE_CHILD_SECTOR("beh_grave02x"); ENABLE_CHILD_SECTOR("beh_grave03x"); print2("Enabled", 2000); gravstn = 1; }
+					else if (gravstn == 1) { DISABLE_CHILD_SECTOR("beh_grave02x"); DISABLE_CHILD_SECTOR("beh_grave03x"); DISABLE_CHILD_SECTOR("beh_grave01x"); print2("Disabled", 2000); gravstn = 0; }
+				}
+				if (interiorint == 12)
+				{
+					if (bridgebroke == 0) { ENABLE_WORLD_SECTOR("ramitaBayaBefore"); ENABLE_WORLD_SECTOR("butterBridgeA"); ENABLE_WORLD_SECTOR("tannersSpanBefore"); ENABLE_WORLD_SECTOR("dixonCrossingBefore"); ENABLE_WORLD_SECTOR("fronteraBridgeBefore"); ENABLE_WORLD_SECTOR("masonBridgeBefore"); DISABLE_WORLD_SECTOR("butterBridgeD"); DISABLE_WORLD_SECTOR("butterBridgeC"); DISABLE_WORLD_SECTOR("butterBridgeB"); DISABLE_WORLD_SECTOR("ramitaBayaAfter"); DISABLE_WORLD_SECTOR("tannersSpanAfter"); DISABLE_WORLD_SECTOR("dixonCrossingAfter"); DISABLE_WORLD_SECTOR("fronteraBridgeAfter"); DISABLE_WORLD_SECTOR("masonBridgeAfter"); print2("Destroyed", 2000); bridgebroke = 1; }
+					else if (bridgebroke == 1) { DISABLE_WORLD_SECTOR("ramitaBayaBefore"); DISABLE_WORLD_SECTOR("butterBridgeA"); DISABLE_WORLD_SECTOR("tannersSpanBefore"); DISABLE_WORLD_SECTOR("dixonCrossingBefore"); DISABLE_WORLD_SECTOR("fronteraBridgeBefore"); DISABLE_WORLD_SECTOR("campoMiradaAfter"); DISABLE_WORLD_SECTOR("masonBridgeBefore"); DISABLE_WORLD_SECTOR("butterBridgeD"); DISABLE_WORLD_SECTOR("butterBridgeC"); ENABLE_WORLD_SECTOR("butterBridgeB"); ENABLE_WORLD_SECTOR("ramitaBayaAfter"); ENABLE_WORLD_SECTOR("tannersSpanAfter"); ENABLE_WORLD_SECTOR("dixonCrossingAfter"); ENABLE_WORLD_SECTOR("fronteraBridgeAfter"); ENABLE_WORLD_SECTOR("masonBridgeAfter"); print2("Built", 2000); bridgebroke = 0; }
+				}
+				//for undead side no real point in doing every single little thing just gonna do catacombs so you can explore it early if wanted (mask wont be present) i'm also near script breaking point due to compiler issues so
+				// couldn't include a disable undead fire's option...sorry
+				if (interiorint == 13)
+				{
+					if (cata1 == 0)
+					{
+						ENABLE_CHILD_SECTOR("dlc_esc_zombieCave01x");
+						ENABLE_CHILD_SECTOR("dlc_esc_zombieCave01Props01x");
+						ENABLE_CHILD_SECTOR("dlc_esc_zombieCave01Props02x");
+						ENABLE_CHILD_SECTOR("dlc_esc_zombieCave01Props03x");
+						DISABLE_CHILD_SECTOR("dlc_esc_zombieCave02x");
+						ENABLE_CHILD_SECTOR("dlc_beh_catacombs01x");
+						ENABLE_CHILD_SECTOR("dlc_beh_catacombs01props01x");
+						print2("Escalera + Hidden Beachers Hope Catacombs (under johns house) Enabled", 5000); cata1 = 1;
+					}
+					else if (cata1 == 1)
+					{
+						DISABLE_CHILD_SECTOR("dlc_esc_zombieCave01x");
+						DISABLE_CHILD_SECTOR("dlc_esc_zombieCave01Props01x");
+						DISABLE_CHILD_SECTOR("dlc_esc_zombieCave01Props02x");
+						DISABLE_CHILD_SECTOR("dlc_esc_zombieCave01Props03x");
+						ENABLE_CHILD_SECTOR("dlc_esc_zombieCave02x");
+						DISABLE_CHILD_SECTOR("dlc_beh_catacombs01x");
+						DISABLE_CHILD_SECTOR("dlc_beh_catacombs01props01x");
+						print2("Disabled", 2000); cata1 = 0;
+					}
+				}
 			}
 			if (PedWepz == 31)
 			{
@@ -2399,7 +2473,7 @@ void MainLRSwitches()
 					ZombifyPeds();
 				}
 			}
-			if (PedWepz == 41)//for testing
+			if (PedWepz == 41)
 			{
 				if (ACTOR_HAS_VARIABLE_MESH(self, pedcomp))
 				{
@@ -2411,22 +2485,7 @@ void MainLRSwitches()
 						print2("Component Already Enabled", 2000);
 				}
 				else
-					print2("Component Not Valid For Current Model", 2000);
-			}
-			if (PedWepz == 99)//for testing
-			{
-				//ADD_COLLECTABLE(Provisions[troph], self, 0);
-				if (ACTOR_HAS_VARIABLE_MESH(GET_VEHICLE(self), meshtester))
-				{
-					if (!ACTOR_IS_VARIABLE_MESH_ENABLED(GET_VEHICLE(self), meshtester))
-					{
-						ACTOR_ENABLE_VARIABLE_MESH(GET_VEHICLE(self), meshtester, 1);
-					}
-					else
-						print2("Component Already Enabled", 2000);
-				}
-				else
-					print2("Component Not Valid For Current Vehicle", 2000);
+					print2("Component Not Valid", 2000);
 			}
 		}
 		if (GetButton(BUTTON_B))
