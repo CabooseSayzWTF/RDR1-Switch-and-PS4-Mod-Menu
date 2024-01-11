@@ -1596,7 +1596,7 @@ void MainLRSwitches()
 		}
 		if (PedWepz == 42)
 		{
-			stradd_s(modmsg, "Animation Set\n<x>:Confirm\n<cancel>:Cancel\n<dpadleftright>:Set<orange> ");
+			stradd_s(modmsg, "Animation Set\n<x>:Confirm\n<action>:Cancel\n<dpadleftright>:Set<orange> ");
 			stradd_s(modmsg, AnimSetC[animsetid]);
 		}
 		if (PedWepz == 99)//test switch function

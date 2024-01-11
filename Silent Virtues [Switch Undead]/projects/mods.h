@@ -1460,7 +1460,7 @@ void MainLRSwitches()
 		}
 		if (PedWepz == 42)
 		{
-			stradd_s(modmsg, "Animation Set\n<x>:Confirm\n<cancel>:Cancel\n<dpadleftright>:Set<orange> ");
+			stradd_s(modmsg, "Animation Set\n<x>:Confirm\n<action>:Cancel\n<dpadleftright>:Set<orange> ");
 			stradd_s(modmsg, AnimSetC[animsetid]);
 		}
 		PRINT_HELP_B(modmsg, 500.0f, false, 1, 2, 1, "", "");
@@ -1895,7 +1895,7 @@ void MainLRSwitches()
 					}
 				}
 			}
-			if (PedWepz == 41)//for testing
+			if (PedWepz == 41)
 			{
 				if (ACTOR_HAS_VARIABLE_MESH(self, pedcomp))
 				{
@@ -1908,10 +1908,6 @@ void MainLRSwitches()
 				}
 				else
 					print2("Component Not Valid", 2000);
-			}
-			if (PedWepz == 42)
-			{
-				UseAnimSet(AnimSetC[animsetid]);
 			}
 		}
 		if (GetButton(BUTTON_RB))
@@ -2486,6 +2482,10 @@ void MainLRSwitches()
 				}
 				else
 					print2("Component Not Valid", 2000);
+			}
+			if (PedWepz == 42)
+			{
+				UseAnimSet(AnimSetC[animsetid]);
 			}
 		}
 		if (GetButton(BUTTON_B))

@@ -1933,24 +1933,6 @@ void MainLRSwitches()
 				else
 					print2("Component Not Valid", 2000);
 			}
-			if (PedWepz == 42)
-			{
-				UseAnimSet(AnimSetC[animsetid]);
-			}
-			if (PedWepz == 99)//for testing
-			{
-				if (ACTOR_HAS_VARIABLE_MESH(GET_VEHICLE(self), meshtester))
-				{
-					if (ACTOR_IS_VARIABLE_MESH_ENABLED(GET_VEHICLE(self), meshtester))
-					{
-						ACTOR_ENABLE_VARIABLE_MESH(GET_VEHICLE(self), meshtester, 0);
-					}
-					else
-						print2("Component Already Enabled", 2000);
-				}
-				else
-					print2("Component Not Valid", 2000);
-			}
 		}
 		if (GetButton(BUTTON_RB))
 		{
@@ -2525,6 +2507,10 @@ void MainLRSwitches()
 				}
 				else
 					print2("Component Not Valid For Current Model", 2000);
+			}
+			if (PedWepz == 42)
+			{
+				UseAnimSet(AnimSetC[animsetid]);
 			}
 			if (PedWepz == 99)//for testing
 			{
