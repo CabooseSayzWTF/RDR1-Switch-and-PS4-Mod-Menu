@@ -66,7 +66,6 @@ int animsetid = 0;
 bool AntiRagDoll2;
 bool tpwp;
 int mornstar = 0, ranchbarn = 0, marshouse = 0, policestat = 0, bankflr = 0, anthro = 0, ridgefarm = 0, campoburn = 0, miltcamp = 0, cavdr = 0, villadoor = 0, gravstn = 0, bridgebroke = 0;
-static int cutsceneIndex = 0;
 static int songIndex = 0;
 Iterator animalridez1, animalridez2, animalridez3;
 char* QuickM[] = { "Nun01", "Bonnie", "Young Jack", "NakedGuy", "NakedGirl", "Paperboy", "MirandaFortuna", "DeadDutch", "MysteryGuy", "HerbertMoon" };
@@ -92,25 +91,6 @@ char* AnimChar[] = { "alerted_rifle_right", "angrymob", "angrymob_torch", "anthr
 char* Provisions[] = { "sn_a1_m", "sn_a1_c", "sn_b1_w", "sn_b2_m", "sn_b2_c", "sn_b2_f", "sn_b2_t", "sn_b3_m", "sn_b3_f", "sn_b4_m", "sn_t_9", "sn_t_8", "sn_t_7", "sn_t_6", "sn_t_5", "sn_t_4", "sn_t_3", "sn_t_2", "sn_t_1", "sn_h_wo", "sn_h_wf", "sn_h_vs", "sn_h_rs", "sn_h_po", "sn_h_pp", "sn_h_hs", "sn_h_gc", "sn_h_ds", "sn_h_bw", "sn_h2_s", "sn_h2_m", "sn_m1_h", "sn_m1_m", "sn_c5_m", "sn_d3_f", "sn_d3_m", "sn_c5_h", "sn_g3_f", "sn_w1_h", "sn_w1_p", "sn_w1_m", "sn_v_f", "sn_sb_f", "sn_s3_s", "sn_s2_f", "sn_s2_m", "sn_s1_s", "sn_s1_m", "sn_r2_f", "sn_r2_m", "sn_r1_m", "sn_p1_m", "sn_o1_f", "sn_nb_h", "sn_nb_s", "sn_nb_t", "sn_nb_m", "sn_xc_h", "sn_xc_f", "sn_xc_p", "sn_xc_m", "sn_xb_f", "sn_xb_h", "sn_xb_c", "sn_xb_t", "sn_xb_m", "sn_xw_f", "sn_xw_h", "sn_xw_m", "sn_h1_f", "sn_g2_h", "sn_g2_f", "sn_g2_t", "sn_g2_c", "sn_g2_m", "sn_g1_m", "sn_f1_f", "sn_f1_m", "sn_e2_s", "sn_e2_a", "sn_e2_m", "sn_e1_f", "sn_d2_f", "sn_d1_s", "sn_d1_m", "sn_c4_f", "sn_c3_p", "sn_c3_m", "sn_c2_p", "sn_c2_f", "sn_c2_c", "sn_c2_m", "sn_c1_f", "sn_b8_s", "sn_b8_h", "sn_b8_m", "sn_b7_s", "sn_b7_a", "sn_b7_m", "sn_b6_f", "sn_b6_c", "sn_b6_m", "sn_b5_t", "sn_b5_s", "sn_b5_m", "sn_b4_s", "sn_b4_h" };
 char* Plsong[] = { "home01_stereo_song", "ross_endcredits_stereo_song", "endcredits_stereo_song", "fort02_stereo_song", "ftr_beat_complete_song_01", "ftr_beat_fail_song_01", "ftr_bounty_hunter_complete_song_01", "ftr_bounty_hunter_fail_song_01", "ftr_job_complete_song_01", "ftr_job_fail_song_01", "ftr_mission_complete_song_01", "ftr_mission_fail_song_01", "ftr_outfit_complete_song_01", "ftr_purchase_property_song_01", "ftr_rcm_complete_song_01", "ftr_rcm_fail_song_01", "ftr_song_01", "ftr_song_02", "ftr_song_03", "ftr_song_04", "ftr_song_05", "ftr_song_06", "ftr_song_07", "ftr_song_08", "ftr_song_09", "mex_song_01", "nrt_beat_complete_song_01", "nrt_song_01", "nrt_song_02", "nrt_song_03", "nrt_song_04", "nrt_song_05", "nrt_song_06" };
 char* AnimSetC[] = { "gent", "gped", "fema", "oldm", "nun", "mexf", "sheriff" };
-
-//Cutscene player might eventually be its own script due to compiler issues. Just left it in as a taste, Made By ImFoxxyyy, I gotta map the other cutscenes out...
-char* CUscene[] = { "Exodus in America", "New Friends, Old Problems", "Obstacles in Our Path", "This is Armadillo, USA", "Women and Cattle", "Wild Horses, Tamed Passions", "A Tempest Looms", "The Burning", "Political Realities in Armadillo", "Justice in Pike's Basin", "Spare the Rod, Spoil the Bandit", "Hanging Bonnie MacFarlane", "The Assault on Fort Mercer" };
-//List of all cutscenes of all missions (not finished)
-static char* missionCutscenes[13][6] = {
-	{ "$/cutscene/intro_sequence_1/intro_sequence_1", "$/cutscene/intro_sequence_2/intro_sequence_2", "$/cutscene/intro_sequence_3/intro_sequence_3", "$/cutscene/intro_01/intro_01", "$/cutscene/intro_b_seq/intro_b_seq", nullstr },
-	{ "$/cutscene/ranch_01/ranch_01", "$/cutscene/ranch_01_end/ranch_01_end", nullstr, nullstr, nullstr, nullstr },
-	{ "$/cutscene/r3/r3", "$/cutscene/ranch03_cs03/ranch03_cs03", nullstr, nullstr, nullstr, nullstr }, //r3 = mission 3
-	{ "$/cutscene/r2/r2", "$/cutscene/ranch02_cs02/ranch02_cs02", "$/cutscene/ranch02_end/ranch02_end", nullstr, nullstr, nullstr },
-	{ "$/cutscene/r7/r7", "$/cutscene/r7_end/r7_end", nullstr, nullstr, nullstr, nullstr },
-	{ "$/cutscene/r6/r6", "$/cutscene/ranch_06_cs03/ranch_06_cs03", "$/cutscene/ranch06_cs05/ranch06_cs05", nullstr, nullstr, nullstr },
-	{ "$/cutscene/r8/r8", nullstr, nullstr, nullstr, nullstr, nullstr },
-	{ "$/cutscene/r4/r4", "$/cutscene/ranch04_cs02/ranch04_cs02", "$/cutscene/r4_end/r4_end", nullstr, nullstr, nullstr },
-	{ "$/cutscene/m1/m1", "$/cutscene/marshal01_cs02/marshal01_cs02", "$/cutscene/marshal01_cs03/marshal01_cs03", "$/cutscene/marshal01_cs04/marshal01_cs04", nullstr, nullstr },
-	{ "$/cutscene/m2/m2", "$/cutscene/marshal02_end_seq/marshal02_end_seq", nullstr, nullstr, nullstr, nullstr },
-	{ "$/cutscene/m4/m4", "$/cutscene/marshal04_cs0a/marshal04_cs0a", "$/cutscene/marshal04_cs02_seq/marshal04_cs02_seq", "$/cutscene/marshal04_cs03/marshal04_cs03", "$/cutscene/marshal04_cs05_seq/marshal04_cs05_seq", "$/cutscene/marshal04_cs06/marshal04_cs06" },
-	{ "$/cutscene/m3/m3", "$/cutscene/marshal03_cs02/marshal03_cs02", "$/cutscene/marshal03_cs03_pt3/marshal03_cs03_pt3", nullstr, nullstr, nullstr },
-	{ "$/cutscene/fort_01/fort_01", "$/cutscene/fort01_warwagon_climb/fort01_warwagon_climb", "$/cutscene/fort_01_cs03_seq/fort_01_cs03_seq", "$/cutscene/fort01_cs06/fort01_cs06", "$/cutscene/fort01_cs07/fort01_cs07", nullstr },
-};
 
 unsafe void OutfitUnlock(int outfitID)
 {
@@ -159,72 +139,6 @@ void FuncCleanUp()
 	{
 		DECOR_REMOVE(self, "DISABLE_HORSE_WHISTLE");
 	}
-}
-bool cutsceneRunning;
-void CheckToEndCutscene()
-{
-	if (IS_BUTTON_PRESSED(0, BUTTON_A, 0, 0) || CUTSCENE_MANAGER_IS_CUTSCENE_FINISHED())
-	{
-		CUTSCENE_MANAGER_STOP_CUTSCENE(1, 1);
-		CUTSCENE_MANAGER_UNLOAD_CUTSCENE();
-		STREAMING_SET_CUTSCENE_MODE(false);
-		ENABLE_USE_CONTEXTS(true);
-		CAMERA_RESET(0);
-		UI_EXIT("LoadingScreen");
-		UI_POP("FadeToBlack");
-		HUD_FADE_IN(1.0f, 1065353216);
-		HUD_CLEAR_OBJECTIVE_QUEUE();
-		cutsceneRunning = false;
-	}
-}
-void LoadCutscene(char* cutscene)
-{
-	if (DECOR_CHECK_EXIST(self, "globalcutloadscreen"))
-	{
-		DECOR_REMOVE(self, "globalcutloadscreen");
-	}
-
-	CUTSCENE_MANAGER_LOAD_CUTSCENE(cutscene, 0, 1, 1, 1, 2);
-	STREAMING_SET_CUTSCENE_MODE(true);
-	ENABLE_USE_CONTEXTS(false);
-	CUTSCENE_MANAGER_PLAY_CUTSCENE();
-	CUTSCENE_MANAGER_SET_SKIP_UI_STACK_POP(0);
-
-	//FuncCleanUp(); //Close the menu so it doesn't run in the background
-	cutsceneRunning = true;
-}
-void SetCutscene(int index)
-{
-	vector3 pos;
-	GET_POSITION(self, &pos);
-
-	//Most missions contain multiple cutscenes, we're going to load each, yes there is a lot!
-	for (int i = 0; i < 6; i++)
-	{
-		while (cutsceneRunning)
-		{
-			CheckToEndCutscene();
-			WAIT(0);
-		}
-
-		if (!CUTSCENE_MANAGER_DOES_CUTSCENE_EXIST(missionCutscenes[index][i]))
-			continue;
-
-		WAIT(2000); //Giving time for the game
-		LoadCutscene(missionCutscenes[index][i]);
-	}
-
-	//We just loaded the last cutscene, we now need to stop it when its finished/user has clicked A
-	//Otherwise we might be stuck in the loading screen forever...
-	while (cutsceneRunning)
-	{
-		CheckToEndCutscene();
-		WAIT(0);
-	}
-
-	//Better use this in-case we finish a cutscene straight in a fight, like in Tumbleweed for example...
-	WAIT(1500);
-	TeleportActor2(self, pos);
 }
 
 unsafe void SetStatArrayValue(int globalIndex, int statValue)
@@ -1515,11 +1429,6 @@ void MainLRSwitches()
 			stradd_s(modmsg, "Time Editor\n<x>:Confirm\n<cancel>:Cancel\n<dpadleftright>:Time:<orange> ");
 			stradd_s(modmsg, INT_TO_STRING(todg));
 		}
-		if (PedWepz == 27)
-		{
-			stradd_s(modmsg, "Cutscene Player\n<x>:Confirm\n<cancel>:Cancel\n<action>Cancel Cutscene\n<dpadleftright>:Cutscene:<orange> ");
-			stradd_s(modmsg, CUscene[cutsceneIndex]);
-		}
 		if (PedWepz == 28)
 		{
 			stradd_s(modmsg, "Movie Player\n<x>:Confirm\n<cancel>:Cancel\n<y>:Stop Video\n<rb>:Theater:<orange> ");
@@ -1703,11 +1612,6 @@ void MainLRSwitches()
 			{
 				todg--;
 				if (todg < 0) todg = 24;
-			}
-			if (PedWepz == 27)
-			{
-				cutsceneIndex--;
-				if (cutsceneIndex < 0) cutsceneIndex = 12;
 			}
 			if (PedWepz == 28)
 			{
@@ -1909,11 +1813,6 @@ void MainLRSwitches()
 			{
 				todg++;
 				if (todg > 24) todg = 0;
-			}
-			if (PedWepz == 27)
-			{
-				cutsceneIndex++;
-				if (cutsceneIndex > 12) cutsceneIndex = 0;
 			}
 			if (PedWepz == 28)
 			{
@@ -2385,10 +2284,6 @@ void MainLRSwitches()
 			if (PedWepz == 25)
 			{
 				SET_TIME_OF_DAY(MAKE_TIME_OF_DAY(todg, 0, 0));
-			}
-			if (PedWepz == 27)
-			{
-				SetCutscene(cutsceneIndex);
 			}
 			if (PedWepz == 28)
 			{

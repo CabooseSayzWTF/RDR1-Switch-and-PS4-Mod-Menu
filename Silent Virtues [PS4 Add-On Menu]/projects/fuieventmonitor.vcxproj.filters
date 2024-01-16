@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="menu.h" />
+    <ClInclude Include="menuUtils.h" />
+    <ClInclude Include="mods.h" />
+    <ClInclude Include="..\include\RDR\consts32.h">
+      <Filter>include\RDR</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\RDR\natives32.h">
+      <Filter>include\RDR</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\natives.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\common.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\constants.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\intrinsics.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\varargs.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\types.h">
+      <Filter>include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="fuieventmonitor.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="include">
+      <UniqueIdentifier>{e6bd64d3-202d-4847-8a1b-15228846c114}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\RDR">
+      <UniqueIdentifier>{37561528-aae2-4492-8a46-698cf2c8d217}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\include\common.c">
+      <Filter>include</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
