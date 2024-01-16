@@ -32,8 +32,7 @@ Justice in Pike's Basin = 25-26<br>
 Spare the Rod, Spoil the Bandit = 27-32<br>
 Hanging Bonnie MacFarlane = 33-35<br>
 The Assault on Fort Mercer = 36-40<br>
-<br>
-<br>
+
 UNDEAD STORY
 --------------
 None mapped out atm.<br>
